@@ -1,0 +1,6 @@
+{
+  "name": "Método 5K com Plaquinha NFC & Biosite",
+  "description": "Página de vendas de alta conversão do treinamento Método 5K com Plaquinha NFC & Biosite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
