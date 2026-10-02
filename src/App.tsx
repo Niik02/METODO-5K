@@ -24,7 +24,8 @@ import {
 } from 'lucide-react';
 
 const CHECKOUT_URL = 'https://pay.kiwify.com.br/aZr7HRq';
-const LOGO_URL = 'https://i.postimg.cc/9QHDMvxz/BF.png';
+const LOGO_URL = '/logo-clean.png';
+const LOGO_FALLBACK_URL = 'https://i.postimg.cc/9QHDMvxz/BF.png';
 const PLAQUE_IMAGE_URL = 'https://i.postimg.cc/DfsJTv60/Chat-GPT-Image-28-de-set-de-2026-09-44-59.png';
 
 export default function App() {
@@ -173,18 +174,21 @@ export default function App() {
       </div>
 
       {/* 1. TOPO / HERO */}
-      <header className="relative pt-8 pb-16 md:pt-12 md:pb-24 overflow-hidden">
+      <header className="relative pt-4 sm:pt-6 pb-16 md:pb-24 overflow-hidden">
         {/* Subtle background glow effect behind plaque */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] md:w-[700px] h-[320px] sm:h-[500px] md:h-[700px] bg-[#0959ec]/15 rounded-full blur-[120px] pointer-events-none -z-0" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          {/* Logo with preserved proportion */}
-          <div className="flex justify-center mb-8 sm:mb-10">
-            <a href="#hero" className="inline-block transition-transform duration-300 hover:scale-[1.02]">
+          {/* Logo with preserved proportion - prominent sizing and tight bounds */}
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <a href="#" className="inline-block transition-transform duration-300 hover:scale-105">
               <img
                 src={LOGO_URL}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = LOGO_FALLBACK_URL;
+                }}
                 alt="Logo Método 5K"
-                className="h-20 sm:h-24 md:h-28 w-auto object-contain mx-auto drop-shadow-md"
+                className="w-56 sm:w-72 md:w-88 lg:w-[420px] max-w-[86vw] h-auto object-contain mx-auto drop-shadow-[0_4px_30px_rgba(9,89,236,0.3)]"
                 loading="eager"
               />
             </a>
@@ -719,11 +723,14 @@ export default function App() {
       {/* 9. RODAPÉ */}
       <footer className="py-10 bg-[#000000] border-t border-neutral-900 text-center">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-center mb-5">
+          <div className="flex justify-center mb-6">
             <img
               src={LOGO_URL}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = LOGO_FALLBACK_URL;
+              }}
               alt="Logo Método 5K"
-              className="h-14 sm:h-16 w-auto object-contain opacity-90"
+              className="w-40 sm:w-52 h-auto object-contain opacity-90 mx-auto"
               loading="lazy"
             />
           </div>
